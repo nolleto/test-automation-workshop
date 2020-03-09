@@ -13,6 +13,8 @@ flask = "~=1.1"
 python-dotenv = "~=0.12"
 stories = "~=0.12"
 flask-api = "~=2.0"
+requests = "~=2.23"
+orator = "~=0.9"
 
 [requires]
 python_version = "3.7.0"
@@ -21,3 +23,4 @@ python_version = "3.7.0"
 server = "flask run"
 lint = "pycodestyle ./"
 test = "mamba"
+migrate = "orator migrate -f"

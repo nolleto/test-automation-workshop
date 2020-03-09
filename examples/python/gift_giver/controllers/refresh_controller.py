@@ -1,13 +1,13 @@
-from services.list_attendees import ListAttendees
+from services.refresh_attendees import RefreshAttendees
 from flask_api import status
 from flask import jsonify
 
 
-class AttendeesController:
+class RefreshController:
     def index(self):
-        response = ListAttendees().list.run()
+        response = RefreshAttendees().list.run()
         if response.is_success:
-            return jsonify(response.value.result)
+            return {'status': 'The attendess list was refreshed'}
         else:
             content = {'status': 'not found'}
             return content, status.HTTP_404_NOT_FOUND

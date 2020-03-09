@@ -1,4 +1,5 @@
 from stories import story, Success, Failure, Result
+from models.attendee import Attendee
 
 
 class ListAttendees:
@@ -8,8 +9,9 @@ class ListAttendees:
         I.finish
 
     def sucess(self, ctx):
-        attendess = [{'name': 'Foo'}, {'name': 'Bar'}]
-        return Success(result=attendess)
+        attendees_name = lambda attendee: {'name': attendee.name}
+        attendees = list(Attendee.all().map(attendees_name))
+        return Success(result=attendees)
 
     def finish(self, ctx):
         return Result(ctx)
